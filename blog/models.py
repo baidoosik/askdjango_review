@@ -14,11 +14,21 @@ class TimeStamp(models.Model):
     class Meta:
         abstract = True #추상적인거 ...다른 모델에 공통적으로 쓰려고 만든거.
 
+
 class Post(TimeStamp):
+    author = models.CharField(max_length=40)
     title = models.CharField(max_length=100, verbose_name='제목')
     content = models.TextField(help_text='Markdown 문법을 적용해 주세요')
-    tags = models.CharField(max_length=100,blank=True)
+    tags = models.CharField(max_length=50,choices=(
+        ('travel','travel'),
+        ('sports','sports'),
+        ('tech','tech'),
+        ('coding','coding'),
+    ),blank=True)
     lnglat = models.CharField(max_length=50,validators=[lnglat_validator],
                               help_text='경도,위도 포맷으로 입력해주세요.')
+
+    def __str__(self):
+        return self.title
 
 # Create your models here.
