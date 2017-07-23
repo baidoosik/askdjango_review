@@ -14,6 +14,13 @@ class TimeStamp(models.Model):
     class Meta:
         abstract = True #추상적인거 ...다른 모델에 공통적으로 쓰려고 만든거.
 
+class Article(TimeStamp):
+    title = models.CharField(max_length=100)
+    url = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.title
+
 
 class Post(TimeStamp):
     author = models.CharField(max_length=40)
