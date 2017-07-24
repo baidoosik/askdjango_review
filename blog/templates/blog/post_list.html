@@ -1,0 +1,12 @@
+{% extends 'layout.html' %}
+{% block contents %}
+    <form action="" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="검색" />
+    </form>
+    {% for post in post %}
+    <table>
+        <li>{{ post.title }}</li>
+    </table>
+    {% endfor %}
+{% endblock %}
