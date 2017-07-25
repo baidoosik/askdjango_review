@@ -8,4 +8,9 @@
         <h4>태그: {{ post.tags }}</h4>
         <h4>위치: {{ post.lnglat }}</h4>
     </table>
+    <h3>Post Comments</h3>
+    {% for comment in comments %}
+        <h5>{{ comment.author }}</h5>
+        <p>{{ comment.message }}</p>
+    {% endfor %}
 {% endblock %}

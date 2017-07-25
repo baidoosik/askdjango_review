@@ -9,6 +9,7 @@ def post_list(request):
 
     q = request.GET.get('q','')
 
+
     if q:
         query1=query1.filter(title__icontains=q)
 
@@ -23,6 +24,9 @@ def post_list(request):
 def post_detail(request,id):
     post = get_object_or_404(Post,id=id)
 
+    comments = post.comment_set.all()
+
     return render(request,'blog/post_detail.html',{
-        'post':post
+        'post':post,
+        'comments':comments,
     })

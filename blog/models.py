@@ -38,4 +38,9 @@ class Post(TimeStamp):
     def __str__(self):
         return self.title
 
+
+class Comment(TimeStamp):
+    post =  models.ForeignKey(Post)
+    author = models.CharField(max_length=40)
+    message = models.TextField(max_length=100)
 # Create your models here.

@@ -3,7 +3,7 @@
     <title>askdjango-review</title>
 </head>
 <body>
-    <h1>Ask Django 리뷰 - 여행 블로그 만들기</h1>
+    <h1><a href="{% url 'blog:post_list' %}">Ask Django 리뷰 - 여행 블로그 만들기</a></h1>
     {% if user.is_authenticated %}
         <h3>프로필</h3>
         <h3>로그아웃</h3>

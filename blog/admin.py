@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post,Article
+from .models import Post,Article,Comment
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
@@ -13,4 +13,9 @@ class ArticlemodelAdmin(admin.ModelAdmin):
     list_display = ['id','title','url']
     list_display_links = ['id','title']
 
+
+@admin.register(Comment)
+class CommentmodelAdmin(admin.ModelAdmin):
+    list_display = ['id', 'author', 'message']
+    list_display_links = ['id','message']
 # Register your models here.
