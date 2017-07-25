@@ -1,5 +1,7 @@
-from django.shortcuts import render,get_object_or_404
-from .models import Post,Article
+from django.shortcuts import render,get_object_or_404,redirect
+from .models import Post,Article,Comment
+from .forms import *
+from django.contrib import messages
 # Create your views here.
 
 def post_list(request):
@@ -30,3 +32,23 @@ def post_detail(request,id):
         'post':post,
         'comments':comments,
     })
+
+def post_new(request):
+    if request.method == 'POST':
+        form = PostModelForm(request.POST,request.FILES)
+
+        if form.is_valid():
+            form = form.save(commit=False)
+            form.author =request.user
+            post = form.save()
+            messages.success(request, '성공적으로 POST 하였습니다 !')
+
+            return redirect('blog:post_list')
+    else:
+        form = PostModelForm()
+
+    return render(request,'blog/post_new.html',{
+        'form':form
+    })
+
+

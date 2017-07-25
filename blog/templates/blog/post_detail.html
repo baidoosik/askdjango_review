@@ -1,13 +1,15 @@
 {% extends 'layout.html' %}
 {% block contents %}
+    <hr/>
     <H2>Post Detail</H2>
     <table>
         <h2> {{ post.title }}</h2>
         <h4>작가 {{ post.author }}</h4>
-        <p>내용 {{ post.content }}</p>
+        <p>내용 {{ post.content |linebreaks }}</p>
         <h4>태그: {{ post.tags }}</h4>
         <h4>위치: {{ post.lnglat }}</h4>
     </table>
+    <hr/>
     <h3>Post Comments</h3>
     {% for comment in comments %}
         <h5>{{ comment.author }}</h5>
