@@ -4,7 +4,14 @@
         <input type="text" name="q" />
         <input type="submit" value="검색" />
     </form>
-    {% for post in post %}
+    <h2> Post</h2>
+    {% for post in post1 %}
+    <table>
+        <li>{{ post.title }}</li>
+    </table>
+    {% endfor %}
+    <h2> Article</h2>
+    {% for post in post2 %}
     <table>
         <li>{{ post.title }}</li>
     </table>
