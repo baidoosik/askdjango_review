@@ -6,8 +6,8 @@
     </form>
     <h2> Post</h2>
     {% for post in post1 %}
-    <table>
-        <li>{{ post.title }}</li>
+    <table></table>
+        <li><a href="{% url 'blog:post_detail' post.id %}">{{ post.title }}</a></li>
     </table>
     {% endfor %}
     <h2> Article</h2>

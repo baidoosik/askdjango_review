@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render,get_object_or_404
 from .models import Post,Article
 # Create your views here.
+
 def post_list(request):
     query1 = Post.objects.all()
 
@@ -16,4 +17,12 @@ def post_list(request):
     return render(request,'blog/post_list.html',{
         'post1':query1,
         'post2':query2,
+    })
+
+
+def post_detail(request,id):
+    post = get_object_or_404(Post,id=id)
+
+    return render(request,'blog/post_detail.html',{
+        'post':post
     })
