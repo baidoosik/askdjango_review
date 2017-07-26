@@ -2,7 +2,7 @@
 {% block contents %}
     <hr/>
     <H2>Post Detail</H2>
-    <table>
+    <table class="table-bordered">
         <h2> {{ post.title }}</h2>
         <p>{{ post.content |linebreaks }}</p>
         <h4>태그: {{ post.tags }}</h4>

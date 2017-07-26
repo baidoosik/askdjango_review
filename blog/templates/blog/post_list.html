@@ -1,18 +1,18 @@
 {% extends 'layout.html' %}
 {% block contents %}
-    <form action="" method="get">
+    <form action="" method="get" class="form">
         <input type="text" name="q" />
-        <input type="submit" value="검색" />
+        <input type="submit" value="검색" class="btn-primary" />
     </form>
     <h2> Post</h2>
     {% for post in post1 %}
-    <table></table>
+    <table class="tag-container">
         <li><a href="{% url 'blog:post_detail' post.id %}">{{ post.title }}</a></li>
     </table>
     {% endfor %}
     <h2> Startup Article</h2>
     {% for post in post2 %}
-    <table>
+    <table class="tag-container">
         <li><a href="{{ post.url }}">{{ post.title }}</a></li>
     </table>
     {% endfor %}

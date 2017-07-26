@@ -1,12 +1,12 @@
 {% extends 'layout.html' %}
 {% block contents %}
     <h1>POST NEW</h1>
-    <form action="" method="POST" enctype="multipart/form-data">
+    <form action="" method="POST" enctype="multipart/form-data" class="table-bordered">
         {% csrf_token %}
         <table>
             {{ form.as_table }}
         </table>
-    <input type="submit">
+    <input type="submit" class="btn-primary">
     </form>
 
 {% endblock %}
