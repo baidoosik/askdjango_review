@@ -51,4 +51,22 @@ def post_new(request):
         'form':form
     })
 
+def post_edit(request,id):
+    post = get_object_or_404(Post,id=id)
 
+    if request.method =='POST':
+        form = PostModelForm(request.POST,request.FILES)
+
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.author = request.user
+            post.save()
+            messages.success(request, '성공적으로 POST 하였습니다 !')
+
+            return redirect('blog:post_list')
+    else:
+        form =PostModelForm(instance=post)
+
+    return render(request,'blog/post_new.html',{
+        'form':form
+    })

@@ -10,10 +10,10 @@
         <li><a href="{% url 'blog:post_detail' post.id %}">{{ post.title }}</a></li>
     </table>
     {% endfor %}
-    <h2> Article</h2>
+    <h2> Startup Article</h2>
     {% for post in post2 %}
     <table>
-        <li>{{ post.title }}</li>
+        <li><a href="{{ post.url }}">{{ post.title }}</a></li>
     </table>
     {% endfor %}
 {% endblock %}
