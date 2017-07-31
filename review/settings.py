@@ -63,6 +63,8 @@ TEMPLATES = [
         'DIRS': [os.path.join(BASE_DIR, 'review', 'templates'),],
         'APP_DIRS': True,
         'OPTIONS': {
+            # 템플릿에서 사용할 변수를 view에서 전달하지 않아도 독립적으로 전달하는 context processor함수가 호출되어
+            # 그 리턴값을 모아서 템플릿에 참조
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',

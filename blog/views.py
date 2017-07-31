@@ -41,7 +41,7 @@ def post_new(request):
             form = form.save(commit=False)
             form.author =request.user
             post = form.save()
-            messages.success(request, '성공적으로 POST 하였습니다 !')
+            messages.add_message(request, messages.INFO, '포스팅이 완료됐습니다.')
 
             return redirect('blog:post_list')
     else:
@@ -61,7 +61,7 @@ def post_edit(request,id):
             post = form.save(commit=False)
             post.author = request.user
             post.save()
-            messages.success(request, '성공적으로 POST 하였습니다 !')
+            messages.add_message(request, messages.INFO, '글 수정이 완료됐습니다.')
 
             return redirect('blog:post_list')
     else:
