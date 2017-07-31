@@ -55,11 +55,10 @@ def post_edit(request,id):
     post = get_object_or_404(Post,id=id)
 
     if request.method =='POST':
-        form = PostModelForm(request.POST,request.FILES)
+        form = PostModelForm(request.POST,request.FILES,instance=post)
 
         if form.is_valid():
             post = form.save(commit=False)
-            post.author = request.user
             post.save()
             messages.add_message(request, messages.INFO, '글 수정이 완료됐습니다.')
 

@@ -1,6 +1,8 @@
+import re
 from django.db import models
 from django.forms import ValidationError
-import re
+from imagekit.models import ProcessedImageField
+from imagekit.processors import Thumbnail
 
 
 def lnglat_validator(value):
@@ -25,6 +27,11 @@ class Article(TimeStamp):
 class Post(TimeStamp):
     author = models.CharField(max_length=40)
     title = models.CharField(max_length=100, verbose_name='제목')
+    photo_thumbnail = ProcessedImageField(
+        upload_to='blog/post/%Y/%m/%d', processors=[Thumbnail(500,500 )],  # 처리할 작업목록
+        format='JPEG',
+        options={'quality': 60},
+        blank=True)
     content = models.TextField(help_text='Markdown 문법을 적용해 주세요')
     tags = models.CharField(max_length=50,choices=(
         ('travel','travel'),
