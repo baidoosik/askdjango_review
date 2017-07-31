@@ -1,6 +1,7 @@
 import re
 from django.db import models
 from django.forms import ValidationError
+from django.shortcuts import reverse
 from imagekit.models import ProcessedImageField
 from imagekit.processors import Thumbnail
 
@@ -45,9 +46,17 @@ class Post(TimeStamp):
     def __str__(self):
         return self.title
 
+    def get_absolute_url(self):
+        return reverse('blog:post_detail',args=[self.id])
+
 
 class Comment(TimeStamp):
     post =  models.ForeignKey(Post)
     author = models.CharField(max_length=40)
     message = models.TextField(max_length=100)
+
+
+    def __str__(self):
+        return self.content
+
 # Create your models here.

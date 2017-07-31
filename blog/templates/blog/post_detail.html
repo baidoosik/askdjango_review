@@ -14,8 +14,16 @@
     </table>
     <hr/>
     <h3>Post Comments</h3>
-    {% for comment in comments %}
+    {% for comment in post.comment_set.all %}
         <h5>{{ comment.author }}</h5>
         <p>{{ comment.message }}</p>
     {% endfor %}
+    <form action="" method="POST" class="table-responsive">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+    <input type="submit" class="btn-primary">
+    </form>
+
 {% endblock %}

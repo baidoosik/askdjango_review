@@ -1,0 +1,10 @@
+{% extends 'blog/post_detail.html' %}
+{% block new_comment %}
+    <form action="" method="POST" class="table-responsive">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+    <input type="submit" class="btn-primary">
+    </form>
+{% endblock %}

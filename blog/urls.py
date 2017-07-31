@@ -7,4 +7,5 @@ urlpatterns =[
     url(r'^post/detail/(?P<id>\d+)/$',views.post_detail,name='post_detail'),
     url(r'^post/new/$',views.post_new,name='post_new'),
     url(r'^post/edit/(?P<id>\d+)/$',views.post_edit,name='post_edit'),
+    # url(r'^post/(?P<id>\d+)/comment/new$',views.comment_new,name='comment_new'),
 ]
