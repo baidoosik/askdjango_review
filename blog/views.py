@@ -6,11 +6,9 @@ from django.contrib import messages
 
 def post_list(request):
     query1 = Post.objects.all()
-
     query2 = Article.objects.all()
 
     q = request.GET.get('q','')
-
 
     if q:
         query1=query1.filter(title__icontains=q)

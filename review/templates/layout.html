@@ -20,8 +20,10 @@
 <body>
     <h1><a href="{% url 'blog:post_list' %}">Ask Django 리뷰 - 여행 블로그 만들기</a></h1>
     {% if user.is_authenticated %}
+     <div>
         <h3>프로필</h3>
         <h3>로그아웃</h3>
+     </div>
     {% else %}
         <h3>로그인</h3>
         <h3>회원가입</h3>
