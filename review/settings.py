@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 """
 
 import os
+import json
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -138,3 +139,15 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 INTERNAL_IPS = ["127.0.0.1"]
+
+# naver client id , 지도
+
+
+file_path = os.path.join(BASE_DIR,'envs.json')
+
+with open(file_path,'rt') as f:
+    envs = f.read()
+
+envs =json.loads(envs)
+NAVER_CLIENT_ID = envs["NAVER_CLIENT_ID"]
+

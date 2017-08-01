@@ -28,7 +28,7 @@ class Article(TimeStamp):
 class Post(TimeStamp):
     author = models.CharField(max_length=40)
     title = models.CharField(max_length=100, verbose_name='제목')
-    photo_thumbnail = ProcessedImageField(
+    photo_thumbnail = ProcessedImageField(verbose_name='photo',
         upload_to='blog/post/%Y/%m/%d', processors=[Thumbnail(500,500 )],  # 처리할 작업목록
         format='JPEG',
         options={'quality': 60},
@@ -40,7 +40,7 @@ class Post(TimeStamp):
         ('tech','tech'),
         ('coding','coding'),
     ),blank=True)
-    lnglat = models.CharField(max_length=50,validators=[lnglat_validator],
+    lnglat = models.CharField(max_length=100,validators=[lnglat_validator],
                               help_text='경도,위도 포맷으로 입력해주세요.')
 
     def __str__(self):
