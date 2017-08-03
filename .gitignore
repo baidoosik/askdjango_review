@@ -4,3 +4,7 @@ myvenv
 *.sqlite3
 .DS_Store
 *.json
+db.sqlite3
+blog/static/
+review/static/
+/db.sqlite3
