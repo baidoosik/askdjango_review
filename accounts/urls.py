@@ -5,7 +5,7 @@ from django.conf import settings
 
 urlpatterns =[
     url(r'^signup/$',views.signup_form,name='sign_up'),
-    url(r'^profile/(?P<id>\d+)/$',views.profile,name='profile'),
+    url(r'^profile/$',views.profile,name='profile'),
     url(r'^login/$',login,name='login',kwargs={
         'template_name':'accounts/login.html'
         }),

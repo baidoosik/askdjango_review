@@ -21,8 +21,9 @@ def signup_form(request):
     })
 
 
-def profile(request,id):
-    my_profile = get_object_or_404(Profile)
+def profile(request):
+    my_profile = CustomUser.objects.filter(username=request.user).first()
+
     return render(request,'accounts/profile.html',{
         'profile':my_profile
     })
