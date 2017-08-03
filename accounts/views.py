@@ -9,11 +9,9 @@ def signup_form(request):
         form = CustomUserModelform(request.POST,request.FILES)
 
         if form.is_valid():
-            custom_user = form.save(commit=True)
+           form.save()
 
-            return redirect('accounts/profile')
-        else:
-            raise form.add_error('가입 형식이 올바르지 않습니다.')
+        return redirect('accounts:login')
 
     else:
         form = CustomUserModelform()

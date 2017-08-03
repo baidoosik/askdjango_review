@@ -14,7 +14,7 @@ class CustomUser(User):
         options={'quality': 60},
         blank=True)
     phone_num = PhoneNumberField(help_text='핸드폰 번호를 입력해 주세요.')
-    birthday = models.DateTimeField(verbose_name='생일')
+
 
 
 class Profile(models.Model):

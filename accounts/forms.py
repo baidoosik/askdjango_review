@@ -8,6 +8,6 @@ from django.contrib.auth import (
 class CustomUserModelform(UserCreationForm):
     class Meta:
         model = CustomUser
-        fields =['username','profile_photo','email','birthday']
+        fields =['username','profile_photo','email']
 
- 
+

@@ -1,0 +1,10 @@
+{% extends 'layout.html' %}
+{% block contents %}
+    <h2> 로그인 </h2>
+    <form action="" method="POST" ENCTYPE="application/x-www-form-urlencoded">
+    {% csrf_token %}
+        {{ form.as_p }}
+    <input type="submit" class="btn-primary">
+    </form>
+
+{% endblock %}
