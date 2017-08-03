@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
+    'accounts',
     'example',
     'django_extensions',
     'debug_toolbar',
@@ -150,4 +151,11 @@ with open(file_path,'rt') as f:
 
 envs =json.loads(envs)
 NAVER_CLIENT_ID = envs["NAVER_CLIENT_ID"]
+
+# 로그인 관련 url 설정
+LOGIN_URL = '/accounts/login/'
+LOGIN_REDIRECT_URL = '/accounts/profile/'
+LOGOUT_REDIRECT_URL = None
+
+AUTH_USER_MODEL = 'auth.User'
 

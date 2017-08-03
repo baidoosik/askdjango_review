@@ -1,0 +1,5 @@
+{% extends 'layout.html' %}
+{% block contents %}
+    <h2>{{ profile.user.username }}님의 프로필</h2>
+    <img src="{% url profile.user.profile_photo.url %}">
+{% endblock %}

@@ -23,6 +23,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^',include('blog.urls',namespace='blog')),
     url(r'^example/',include('example.urls',namespace='example')),
+    url(r'^accounts/',include('accounts.urls',namespace='accounts')),
 ]
 
 if settings.DEBUG:

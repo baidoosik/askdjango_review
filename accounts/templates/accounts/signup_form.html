@@ -1,0 +1,8 @@
+{% extends 'layout.html' %}
+{% block contents %}
+    <form action="" method="POST" enctype="multipart/form-data">
+    <h2>회원가입</h2>
+        {{ form.as_p }}
+    <input type="submit" class="btn-primary" >
+    </form>
+{% endblock %}
