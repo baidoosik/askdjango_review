@@ -14,19 +14,24 @@
             height: 60px;
             line-height: 60px;
             background-color: #f5f5f5;
-    }
+        }
+        #page-top {
+            alignment: ;
+        }
     </style>
 </head>
 <body>
     <h1><a href="{% url 'blog:post_list' %}">Ask Django 리뷰 - 여행 블로그 만들기</a></h1>
     {% if user.is_authenticated %}
-     <div>
-        <h3>프로필</h3>
-        <h3>로그아웃</h3>
-     </div>
+        <div id="page-top">
+            <h3><a href="{% url 'accounts:profile' %}">프로필</a></h3>
+            <h3><a href="{% url 'accounts:logout' %}?next={{ request.path }}">로그아웃</a></h3>
+        </div>
     {% else %}
-        <h3>로그인</h3>
-        <h3>회원가입</h3>
+        <div id="page-top">
+            <h3><a href="{% url 'accounts:login' %}?next={{ request.path }}">로그인</a></h3>
+            <h3><a href="{% url 'accounts:sign_up' %}">회원가입</a></h3>
+        </div>
     {% endif %}
     {% if messages %}
     <ul class="messages">
